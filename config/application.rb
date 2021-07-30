@@ -11,6 +11,7 @@ module Musicapp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    RSpotify.authenticate("93b01c324392481aadf23cf87b8e0cfd", "8fa25f2681054cfb96bd8110d867585f")
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
