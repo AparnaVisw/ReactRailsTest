@@ -1,7 +1,8 @@
 class Track < ApplicationRecord
+	include Searcheable
 
 	def self.create_new_spotify_track(track)
-	    Track.create!(
+	    track = Track.new(
 	      spotify_id: track.id,
 	      name: track.name,
 	      artist_name: track.artists&.first.name,
@@ -10,15 +11,11 @@ class Track < ApplicationRecord
 	      popularity: track.popularity,
 	      duration_ms: track.duration_ms
 	    )
+	    track.save!
 	end
 
-	def self.search_by_name(name_value)
-	    if name_value
-	      q = "%#{search}%"
-	      where('lower(name_value) LIKE ?',q.downcase)
-	    else
-	      []
-	    end
-  	end
+	scope :search_by_popularity, -> (popularity) { where popularity: popularity }
+	scope :search_by_album_name, -> (album_name) { where("name like ?", "#{album_name}%") }
+	scope :search_by_artist_name, -> (artist_name) { where("artist_name like ?", "#{artist_name}%")}
 
 end
