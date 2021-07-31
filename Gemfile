@@ -61,4 +61,4 @@ gem 'rack-cors'
 gem 'active_model_serializers'
 gem 'rspotify'
 
-gem 'byebug'
+gem 'jquery-rails'

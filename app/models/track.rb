@@ -12,4 +12,13 @@ class Track < ApplicationRecord
 	    )
 	end
 
+	def self.search_by_name(name_value)
+	    if name_value
+	      q = "%#{search}%"
+	      where('lower(name_value) LIKE ?',q.downcase)
+	    else
+	      []
+	    end
+  	end
+
 end

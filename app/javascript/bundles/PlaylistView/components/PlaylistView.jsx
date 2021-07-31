@@ -9,18 +9,15 @@ export default class PlaylistView extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      track_infos: [],
-    };
     this.state = { tracks: this.props.tracks };
   }
 
   render() {
-    const products = [ ];
+    const musics = [ ];
 
     function addTracks(tracks) {
       (tracks).map((track) => (
-            products.push({
+            musics.push({
               id: track['id'],
               popularity: track['popularity'],
               name: track['name'],
@@ -63,7 +60,7 @@ export default class PlaylistView extends React.Component {
           <BootstrapTable 
             keyField='id'
             columns={columns} 
-            data={products} 
+            data={musics} 
             noDataIndication={"No data to display"}
             striped
             hover condensed

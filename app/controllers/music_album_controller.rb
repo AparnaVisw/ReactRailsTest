@@ -4,6 +4,7 @@ class MusicAlbumController < ApplicationController
   layout "hello_world"
 
   def index
-    @props = { tracks: Track.all}
+    tracks = Track.all
+    @props = { tracks: tracks}
   end
 end
